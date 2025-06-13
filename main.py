@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request
 import logging
 import smtplib
 from email.mime.text import MIMEText
@@ -86,7 +86,7 @@ projects_data = [
     {
         "title": "VEXA Chatbot",
         "description": "An AI-powered chatbot for Sahayak Organization, assisting users with queries about underprivileged children's development.",
-        "image": "static\\images\\Vexa Chatbot.png",
+        "image": "/static/images/Vexa Chatbot.png",
         "technologies": ["Python", "Deep Learning", "PyTorch", "Flask", "HTML", "CSS"],
         "githubLink": "https://github.com/BChaitanyaReddy895/vexa_chatbot",
         "liveLink": "https://chaitanya895-sahayak.hf.space"
@@ -118,10 +118,10 @@ education_data = [
 @app.route('/')
 def serve_index():
     try:
-        return render_template('index.html'), 200
+        return app.send_static_file('index.html'), 200
     except Exception as e:
-        logging.error(f"Error rendering index.html: {str(e)}")
-        return jsonify({"error": "Template not found"}), 404
+        logging.error(f"Error serving index.html: {str(e)}")
+        return jsonify({"error": "File not found"}), 404
 
 @app.route('/static/<path:path>')
 def serve_static(path):
