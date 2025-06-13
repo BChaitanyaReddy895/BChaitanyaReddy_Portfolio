@@ -17,7 +17,7 @@ EMAIL_PASSWORD = "einf clqk oyds ucuj"
 RECIPIENT_EMAIL = "chaituchaithanyareddy895@gmail.com"
 
 # Admin password for delete functionality (replace with a secure password)
-ADMIN_PASSWORD = "securepassword123"  # Change this to a strong password
+ADMIN_PASSWORD = "Chaitu895@"  # Change this to a strong password
 
 # SQLite database setup
 # Use /tmp for Hugging Face Spaces, fallback to current directory if writable
