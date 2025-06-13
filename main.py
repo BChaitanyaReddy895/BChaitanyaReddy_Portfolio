@@ -86,7 +86,7 @@ projects_data = [
     {
         "title": "VEXA Chatbot",
         "description": "An AI-powered chatbot for Sahayak Organization, assisting users with queries about underprivileged children's development.",
-        "image": "/static/images/Vexa-Chatbot.png",
+        "image": "static\\images\\Vexa Chatbot.png",
         "technologies": ["Python", "Deep Learning", "PyTorch", "Flask", "HTML", "CSS"],
         "githubLink": "https://github.com/BChaitanyaReddy895/vexa_chatbot",
         "liveLink": "https://chaitanya895-sahayak.hf.space"
