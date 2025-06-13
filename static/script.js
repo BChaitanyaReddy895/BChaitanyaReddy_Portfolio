@@ -364,8 +364,16 @@ fetchData('/api/hobbies', 'hobbies-grid', (data, container) => {
               reviewDiv.querySelector('.delete-review').addEventListener('click', () => {
                 const confirmDelete = confirm(`Are you sure you want to delete the review by ${review.name}?`);
                 if (confirmDelete) {
+                  const password = prompt('Please enter the admin password to delete this review:');
+                  if (!password) {
+                    alert('Password is required to delete a review.');
+                    return;
+                  }
+
                   fetch(`/api/reviews/delete/${review.id}`, {
-                    method: 'DELETE'
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
                   })
                   .then(response => response.json())
                   .then(data => {
