@@ -16,11 +16,22 @@ EMAIL_ADDRESS = "chaituchaithanyareddy895@gmail.com"
 EMAIL_PASSWORD = "einf clqk oyds ucuj"
 RECIPIENT_EMAIL = "chaituchaithanyareddy895@gmail.com"
 
+# Admin password for delete functionality (replace with a secure password)
+ADMIN_PASSWORD = "securepassword123"  # Change this to a strong password
+
 # SQLite database setup
-DB_PATH = os.path.join(os.getcwd(), "portfolio.db")
+# Use /tmp for Hugging Face Spaces, fallback to current directory if writable
+DB_DIR = "/tmp" if os.access("/tmp", os.W_OK) else os.getcwd()
+DB_PATH = os.path.join(DB_DIR, "portfolio.db")
+logging.info(f"Database path set to: {DB_PATH}")
 
 def init_db():
+    conn = None  # Initialize conn to None to avoid UnboundLocalError
     try:
+        # Check if the directory is writable
+        if not os.access(DB_DIR, os.W_OK):
+            raise Exception(f"Directory {DB_DIR} is not writable")
+        
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         # Create reviews table if it doesn't exist
@@ -36,8 +47,10 @@ def init_db():
         logging.info("SQLite database and reviews table initialized successfully.")
     except Exception as e:
         logging.error(f"Error initializing database: {str(e)}")
+        raise  # Re-raise the exception for debugging on Hugging Face Spaces
     finally:
-        conn.close()
+        if conn:  # Only close if conn was successfully created
+            conn.close()
 
 # Initialize the database when the app starts
 init_db()
@@ -227,6 +240,15 @@ def delete_review(id):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     try:
+        # Check for admin password in the request body
+        data = request.get_json()
+        if not data or 'password' not in data:
+            return jsonify({"error": "Password is required"}), 400
+
+        password = data['password']
+        if password != ADMIN_PASSWORD:
+            return jsonify({"error": "Invalid password"}), 403
+
         # Check if the review exists
         cursor.execute("SELECT name FROM reviews WHERE id = ?", (id,))
         review = cursor.fetchone()
