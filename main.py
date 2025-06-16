@@ -25,10 +25,8 @@ PROJECT_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "portfolio.db"
 PERSISTENT_DB_PATH = "/data/portfolio.db"
 
 def init_db():
+    conn = None
     try:
-        # Ensure the /data/ directory exists (it should, but just in case)
-        os.makedirs(os.path.dirname(PERSISTENT_DB_PATH), exist_ok=True)
-
         # Check if portfolio.db exists in /data/; if not, copy from project directory
         if not os.path.exists(PERSISTENT_DB_PATH):
             if os.path.exists(PROJECT_DB_PATH):
@@ -69,7 +67,8 @@ def init_db():
         logging.error(f"Error initializing SQLite database: {str(e)}")
         raise
     finally:
-        conn.close()
+        if conn:
+            conn.close()
 
 # Initialize the database when the app starts
 init_db()
