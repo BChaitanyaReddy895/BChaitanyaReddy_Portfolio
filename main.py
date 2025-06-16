@@ -23,20 +23,30 @@ ADMIN_PASSWORD = "Chaitu895@"  # Change this to a strong password
 # SQLite database paths
 PROJECT_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "portfolio.db")
 PERSISTENT_DB_PATH = "/data/portfolio.db"
+FALLBACK_DB_PATH = "/tmp/portfolio.db"
 
 def init_db():
     conn = None
+    db_path = PERSISTENT_DB_PATH
+
     try:
-        # Check if portfolio.db exists in /data/; if not, copy from project directory
-        if not os.path.exists(PERSISTENT_DB_PATH):
+        # Check if /data/ exists; if not, fall back to /tmp/
+        if not os.path.exists("/data"):
+            logging.warning("Persistent storage directory '/data' not found. Falling back to /tmp (non-persistent).")
+            db_path = FALLBACK_DB_PATH
+            # Ensure /tmp/ exists (it should, but just in case)
+            os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
+        # Check if the database exists at the target path; if not, copy from project directory
+        if not os.path.exists(db_path):
             if os.path.exists(PROJECT_DB_PATH):
-                shutil.copy(PROJECT_DB_PATH, PERSISTENT_DB_PATH)
-                logging.info(f"Copied portfolio.db from {PROJECT_DB_PATH} to {PERSISTENT_DB_PATH}")
+                shutil.copy(PROJECT_DB_PATH, db_path)
+                logging.info(f"Copied portfolio.db from {PROJECT_DB_PATH} to {db_path}")
             else:
                 logging.warning(f"Initial portfolio.db not found at {PROJECT_DB_PATH}. Creating a new database.")
 
-        # Connect to the database in /data/
-        conn = sqlite3.connect(PERSISTENT_DB_PATH)
+        # Connect to the database
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
         # Create reviews table if it doesn't exist, with position column
@@ -62,7 +72,7 @@ def init_db():
         logging.info("Cleaned up test entries from reviews table.")
 
         conn.commit()
-        logging.info("SQLite database and reviews table initialized successfully.")
+        logging.info(f"SQLite database initialized successfully at {db_path}.")
     except Exception as e:
         logging.error(f"Error initializing SQLite database: {str(e)}")
         raise
@@ -70,8 +80,10 @@ def init_db():
         if conn:
             conn.close()
 
-# Initialize the database when the app starts
-init_db()
+    return db_path
+
+# Initialize the database and set the DB_PATH for the app to use
+DB_PATH = init_db()
 
 # Data for API endpoints
 skills_data = [
@@ -241,7 +253,7 @@ def get_hobbies():
 def handle_reviews():
     conn = None
     try:
-        conn = sqlite3.connect(PERSISTENT_DB_PATH)
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
         if request.method == 'POST':
@@ -280,7 +292,7 @@ def handle_reviews():
                 return jsonify({"error": "Internal server error"}), 500
     except Exception as e:
         logging.error(f"Error connecting to SQLite database in /api/reviews: {str(e)}")
-        return jsonify({"error": "Database connection error: {str(e)}"}), 500
+        return jsonify({"error": f"Database connection error: {str(e)}"}), 500
     finally:
         if conn:
             conn.close()
@@ -289,7 +301,7 @@ def handle_reviews():
 def update_review_position(id):
     conn = None
     try:
-        conn = sqlite3.connect(PERSISTENT_DB_PATH)
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         # Check for admin password in the request body
         data = request.get_json()
@@ -327,7 +339,7 @@ def update_review_position(id):
 def delete_review(id):
     conn = None
     try:
-        conn = sqlite3.connect(PERSISTENT_DB_PATH)
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         # Check for admin password in the request body
         data = request.get_json()
