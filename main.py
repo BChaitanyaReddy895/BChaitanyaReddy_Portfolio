@@ -161,7 +161,7 @@ projects_data = [
     },
     {
         "title": "Bangla to English Translator",
-        "description": "A machine learning model translating Bangla text, images, PDFs, and websites to English using NLP and web crawling techniques.",
+        "description": "A machine learning model translating Bangla text, images, PDFs, and websites to English using NLP and web crawling techniques with advance search mechanisms.",
         "image": "/static/images/translator.png",
         "technologies": ["Python", "NLP", "HTML", "CSS", "JavaScript"],
         "githubLink": "https://github.com/BChaitanyaReddy895/Bengali_English_translator",
