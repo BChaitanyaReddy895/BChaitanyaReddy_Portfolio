@@ -37,3 +37,4 @@ static/B[[:space:]]Chaitanya[[:space:]]Reddy[[:space:]]Resume.pdf filter=lfs dif
 static/images/myphoto.jpg filter=lfs diff=lfs merge=lfs -text
 static/images/Vexa[[:space:]]Chatbot.png filter=lfs diff=lfs merge=lfs -text
 static/images/translator.png.jpg filter=lfs diff=lfs merge=lfs -text
+static/images/translator.jpg filter=lfs diff=lfs merge=lfs -text
