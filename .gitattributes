@@ -40,3 +40,4 @@ static/images/translator.png.jpg filter=lfs diff=lfs merge=lfs -text
 static/images/translator.jpg filter=lfs diff=lfs merge=lfs -text
 static/images/certifications/Screenshot[[:space:]]2025-07-14[[:space:]]203706.png filter=lfs diff=lfs merge=lfs -text
 static/images/certifications/sdpnlp.jpg filter=lfs diff=lfs merge=lfs -text
+static/images/Screenshot[[:space:]]2025-07-14[[:space:]]210436.png filter=lfs diff=lfs merge=lfs -text
