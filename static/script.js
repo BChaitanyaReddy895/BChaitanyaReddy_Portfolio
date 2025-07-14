@@ -1,4 +1,3 @@
-
 console.log("Script.js started executing at:", new Date().toISOString());
 
 // Initialize Particles.js
@@ -576,6 +575,11 @@ fetchData('/api/talks', 'talks-grid', (data, container) => {
           </div>
           <h4 class="text-primary-blue glow mb-2">${talk.event}</h4>
           <p class="text-gray-300 mb-4">${talk.description}</p>
+          ${talk.image ? `
+            <div class="mb-4">
+              <img src="${talk.image}" alt="${talk.title} thumbnail" class="w-full h-48 object-cover rounded-md glow">
+            </div>
+          ` : ''}
           <div class="video-container mb-4">
             <iframe src="${talk.videoLink}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="glow"></iframe>
           </div>
