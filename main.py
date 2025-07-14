@@ -218,7 +218,7 @@ certifications_data = [
         "year": "June 2024",
         "description": "Art of C Programming Course Completion with a consolidate score of 89%.",
         "certificateLink": "https://drive.google.com/file/d/1p4lkzUMqFGtBKJk8ppuSgiyCrR9MrYvS/view?usp=drive_link",  # Replace with actual link
-        "badge": "/static/images/certifications/c.png"  # Placeholder for badge image
+        "badge": "static/images/certifications/Screenshot 2025-07-14 203706.png"  # Placeholder for badge image
     }
 ]
 
