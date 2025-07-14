@@ -163,7 +163,7 @@ projects_data = [
         "technologies": ["Python", "Deep Learning", "PyTorch", "Flask", "HTML", "CSS"],
         "githubLink": "https://github.com/BChaitanyaReddy895/vexa_chatbot",
         "liveLink": "https://chaitanya895-sahayak.hf.space",
-        "image": "/static/images/Vexa_Chatbot.png",
+        "image": "/static/images/Vexa Chatbot.png",
         "video": "https://drive.google.com/file/d/1zNCedqcqOxuD4WvIqn47wZLqG-jG5Qkf/view?usp=sharing",  # Placeholder for video link
         "role": "Lead Developer and Presenter",
         "contributions": [
@@ -210,7 +210,7 @@ certifications_data = [
         "year": "November 2024",
         "description": "Completed a comprehensive course on NLP from the skill development program conducted at REVA University",
         "certificateLink": "https://drive.google.com/file/d/18feyqzNhxoHeFcpjUGtwYECxhJTGlneI/view?usp=sharing",  # Replace with actual link
-        "badge": ""  # Placeholder for badge image
+        "badge": "static/images/certifications/sdpnlp.jpg"  # Placeholder for badge image
     },
     {
         "title": "Art of C Programming",
@@ -218,7 +218,7 @@ certifications_data = [
         "year": "June 2024",
         "description": "Art of C Programming Course Completion with a consolidate score of 89%.",
         "certificateLink": "https://drive.google.com/file/d/1p4lkzUMqFGtBKJk8ppuSgiyCrR9MrYvS/view?usp=drive_link",  # Replace with actual link
-        "badge": "/static/images/certifications/python_data_science_badge.png"  # Placeholder for badge image
+        "badge": "/static/images/certifications/c.png"  # Placeholder for badge image
     }
 ]
 
