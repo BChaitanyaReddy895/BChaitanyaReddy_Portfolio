@@ -1,4 +1,4 @@
-```javascript
+
 console.log("Script.js started executing at:", new Date().toISOString());
 
 // Initialize Particles.js
