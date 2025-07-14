@@ -243,7 +243,7 @@ talks_data = [
         "date": "July 2025",  # Update with actual date
         "description": "Delivered an 8-minute presentation on the Vexa Chatbot, covering its technical architecture, impact, and deployment for the Sahayak Organization.",
         "videoLink": "https://drive.google.com/file/d/1zNCedqcqOxuD4WvIqn47wZLqG-jG5Qkf/view?usp=sharing",
-        "image": "static/images/vexaworking.jpg"# Placeholder for actual video link
+        "image": "static/images/Screenshot 2025-07-14 210436.png"# Placeholder for actual video link
     }
 ]
 
