@@ -124,6 +124,12 @@ achievements_data = [
         "title": "Winner at UI/UX Design Challenge",
         "organization": "IIT Jammu",
         "description": "Designed an e-commerce platform showcasing Indian state-specific handicrafts, promoting cultural heritage."
+    },
+    {
+        "icon": "microphone",
+        "title": "Vexa Chatbot Launch Presentation",
+        "organization": "REVA University",
+        "description": "Delivered an 8-minute talk on the Vexa Chatbot launch, showcasing technical details and project impact to peers and faculty."
     }
 ]
 
@@ -152,20 +158,34 @@ hobbies_data = [
 
 projects_data = [
     {
-        "title": "VEXA Chatbot",
+        "title": "Vexa Chatbot",
         "description": "An AI-powered chatbot for Sahayak Organization, assisting users with queries about underprivileged children's development.",
-        "image": "/static/images/Vexa Chatbot.png",
         "technologies": ["Python", "Deep Learning", "PyTorch", "Flask", "HTML", "CSS"],
         "githubLink": "https://github.com/BChaitanyaReddy895/vexa_chatbot",
-        "liveLink": "https://chaitanya895-sahayak.hf.space"
+        "liveLink": "https://chaitanya895-sahayak.hf.space",
+        "image": "/static/images/Vexa_Chatbot.png",
+        "video": "https://www.youtube.com/watch?v=vexa_chatbot_talk",  # Placeholder for video link
+        "role": "Lead Developer and Presenter",
+        "contributions": [
+            "Designed and implemented the chatbot's NLP pipeline using PyTorch",
+            "Developed the Flask backend for seamless user interaction",
+            "Presented the project in an 8-minute talk at REVA University, explaining technical details and impact"
+        ]
     },
     {
         "title": "Bangla to English Translator",
-        "description": "A machine learning model translating Bangla text, images, PDFs, and websites to English using NLP and web crawling techniques with advance search mechanisms.",
-        "image": "/static/images/translator.jpg",
+        "description": "A machine learning model translating Bangla text, images, PDFs, and websites to English using NLP and web crawling techniques with advanced search mechanisms.",
         "technologies": ["Python", "NLP", "HTML", "CSS", "JavaScript"],
         "githubLink": "https://github.com/BChaitanyaReddy895/Bengali_English_translator",
-        "liveLink": "https://chaitanya895-bangla-translator.hf.space"
+        "liveLink": "https://chaitanya895-bangla-translator.hf.space",
+        "image": "/static/images/translator.jpg",
+        "video": "",  # No video for this project
+        "role": "Machine Learning Engineer",
+        "contributions": [
+            "Built the NLP model for accurate Bangla-to-English translation",
+            "Integrated web crawling for real-time website translation",
+            "Designed the user interface for accessibility and ease of use"
+        ]
     }
 ]
 
@@ -178,7 +198,8 @@ education_data = [
         "achievements": [
             "Won IEEE Ideathon at REVA University",
             "Developed Bangla to English translation model for industrial use",
-            "Participated in Entellika Sparc AI Hackathon and IIT Jammu UI/UX Challenge"
+            "Participated in Entellika Sparc AI Hackathon and IIT Jammu UI/UX Challenge",
+            "Delivered an 8-minute talk on Vexa Chatbot launch to peers and faculty"
         ]
     }
 ]
@@ -186,17 +207,52 @@ education_data = [
 certifications_data = [
     {
         "title": "Certified AI Practitioner",
-        "organization": "Hugging Face",
-        "date": "June 2025",
+        "platform": "Hugging Face",
+        "year": "June 2025",
         "description": "Completed a comprehensive course on AI fundamentals, including LLMs and AI agents.",
-        "certificateLink": "https://huggingface.co/certificates/your-certificate-id"  # Replace with actual link if available
+        "certificateLink": "https://huggingface.co/certificates/your-certificate-id",  # Replace with actual link
+        "badge": "/static/images/certifications/ai_practitioner_badge.png"  # Placeholder for badge image
     },
     {
         "title": "Python for Data Science",
-        "organization": "Coursera",
-        "date": "March 2024",
+        "platform": "Coursera",
+        "year": "March 2024",
         "description": "Learned advanced Python techniques for data analysis and visualization.",
-        "certificateLink": "https://coursera.org/certificates/your-certificate-id"  # Replace with actual link
+        "certificateLink": "https://coursera.org/certificates/your-certificate-id",  # Replace with actual link
+        "badge": "/static/images/certifications/python_data_science_badge.png"  # Placeholder for badge image
+    }
+]
+
+volunteer_experience_data = [
+    {
+        "role": "Technical Mentor",
+        "organization": "REVA University Coding Club",
+        "period": "2024-Present",
+        "description": "Mentored students in Python and machine learning, organizing workshops and coding bootcamps.",
+        "contributions": [
+            "Conducted 5+ workshops on Python and NLP for 50+ students",
+            "Guided peers in building AI-based projects for hackathons"
+        ]
+    },
+    {
+        "role": "Volunteer Developer",
+        "organization": "Sahayak Organization",
+        "period": "2023-2024",
+        "description": "Developed the Vexa Chatbot to support queries about underprivileged children's development.",
+        "contributions": [
+            "Led the development of the chatbot’s AI backend",
+            "Presented the project to stakeholders in an 8-minute talk"
+        ]
+    }
+]
+
+talks_data = [
+    {
+        "title": "Vexa Chatbot Launch – Speaker Session",
+        "event": "REVA University Tech Talk",
+        "date": "July 2025",  # Update with actual date
+        "description": "Delivered an 8-minute presentation on the Vexa Chatbot, covering its technical architecture, impact, and deployment for the Sahayak Organization.",
+        "videoLink": "https://www.youtube.com/watch?v=vexa_chatbot_talk"  # Placeholder for actual video link
     }
 ]
 
@@ -258,10 +314,8 @@ def handle_reviews():
                     return jsonify({"error": "Rating must be between 1 and 5"}), 400
                 description = data['description']
                 name = data['name']
-                # Optional: Allow position to be specified in the request, default to 0
                 position = int(data.get('position', 0))
                 
-                # Insert the review into the database with the position
                 cursor.execute(
                     "INSERT INTO reviews (name, rating, description, position) VALUES (?, ?, ?, ?)",
                     (name, rating, description, position)
@@ -273,9 +327,8 @@ def handle_reviews():
                 conn.rollback()
                 logging.error(f"Error in /api/reviews POST: {str(e)}")
                 return jsonify({"error": "Internal server error"}), 500
-        else:  # GET request
+        else:
             try:
-                # Sort by position (ascending), then by id (ascending) as a tiebreaker
                 cursor.execute("SELECT id, name, rating, description, position FROM reviews ORDER BY position ASC, id ASC")
                 reviews = [{"id": row[0], "name": row[1], "rating": row[2], "description": row[3], "position": row[4]} for row in cursor.fetchall()]
                 return jsonify(reviews)
@@ -295,7 +348,6 @@ def update_review_position(id):
     try:
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
-        # Check for admin password in the request body
         data = request.get_json()
         if not data or 'password' not in data:
             return jsonify({"error": "Password is required"}), 400
@@ -308,14 +360,11 @@ def update_review_position(id):
             return jsonify({"error": "Position is required"}), 400
 
         position = int(data['position'])
-
-        # Check if the review exists
         cursor.execute("SELECT name FROM reviews WHERE id = ?", (id,))
         review = cursor.fetchone()
         if not review:
             return jsonify({"error": "Review not found"}), 404
         
-        # Update the position of the review
         cursor.execute("UPDATE reviews SET position = ? WHERE id = ?", (position, id))
         conn.commit()
         logging.info(f"Review position updated for id {id}: {review[0]}, new position: {position}")
@@ -333,7 +382,6 @@ def delete_review(id):
     try:
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
-        # Check for admin password in the request body
         data = request.get_json()
         if not data or 'password' not in data:
             return jsonify({"error": "Password is required"}), 400
@@ -342,13 +390,11 @@ def delete_review(id):
         if password != ADMIN_PASSWORD:
             return jsonify({"error": "Invalid password"}), 403
 
-        # Check if the review exists
         cursor.execute("SELECT name FROM reviews WHERE id = ?", (id,))
         review = cursor.fetchone()
         if not review:
             return jsonify({"error": "Review not found"}), 404
         
-        # Delete the review
         cursor.execute("DELETE FROM reviews WHERE id = ?", (id,))
         conn.commit()
         logging.info(f"Review deleted with id {id}: {review[0]}")
@@ -384,6 +430,22 @@ def get_certifications():
         logging.error(f"Error in /api/certifications: {str(e)}")
         return jsonify({"error": "Internal server error"}), 500
 
+@app.route('/api/volunteer')
+def get_volunteer_experience():
+    try:
+        return jsonify(volunteer_experience_data)
+    except Exception as e:
+        logging.error(f"Error in /api/volunteer: {str(e)}")
+        return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/api/talks')
+def get_talks():
+    try:
+        return jsonify(talks_data)
+    except Exception as e:
+        logging.error(f"Error in /api/talks: {str(e)}")
+        return jsonify({"error": "Internal server error"}), 500
+
 @app.route('/api/contact', methods=['POST'])
 def contact():
     try:
@@ -394,7 +456,6 @@ def contact():
         message = data['message']
         logging.info(f"Contact form submission - Email: {email}, Message: {message}")
 
-        # Set up the email
         msg = MIMEMultipart()
         msg['From'] = EMAIL_ADDRESS
         msg['To'] = RECIPIENT_EMAIL
@@ -403,9 +464,8 @@ def contact():
         body = f"New message from your portfolio website:\n\nFrom: {email}\nMessage: {message}"
         msg.attach(MIMEText(body, 'plain'))
 
-        # Connect to Gmail's SMTP server
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
-            server.starttls()  # Enable TLS
+            server.starttls()
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
             server.sendmail(EMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
             logging.info(f"Email sent to {RECIPIENT_EMAIL}")
