@@ -164,12 +164,12 @@ projects_data = [
         "githubLink": "https://github.com/BChaitanyaReddy895/vexa_chatbot",
         "liveLink": "https://chaitanya895-sahayak.hf.space",
         "image": "/static/images/Vexa_Chatbot.png",
-        "video": "https://www.youtube.com/watch?v=vexa_chatbot_talk",  # Placeholder for video link
+        "video": "https://drive.google.com/file/d/1zNCedqcqOxuD4WvIqn47wZLqG-jG5Qkf/view?usp=sharing",  # Placeholder for video link
         "role": "Lead Developer and Presenter",
         "contributions": [
             "Designed and implemented the chatbot's NLP pipeline using PyTorch",
             "Developed the Flask backend for seamless user interaction",
-            "Presented the project in an 8-minute talk at REVA University, explaining technical details and impact"
+            "Presented the project in an 8-minute talk at 1 year anniversary of sahayak organization, explaining its functioning, impact and it's future goals"
         ]
     },
     {
@@ -179,11 +179,10 @@ projects_data = [
         "githubLink": "https://github.com/BChaitanyaReddy895/Bengali_English_translator",
         "liveLink": "https://chaitanya895-bangla-translator.hf.space",
         "image": "/static/images/translator.jpg",
-        "video": "",  # No video for this project
-        "role": "Machine Learning Engineer",
+        "role": "Lead Developer and Machine Learning Engineer",
         "contributions": [
             "Built the NLP model for accurate Bangla-to-English translation",
-            "Integrated web crawling for real-time website translation",
+            "Integrated web crawling for real-time website translation and advance search mechanisms",
             "Designed the user interface for accessibility and ease of use"
         ]
     }
@@ -206,38 +205,29 @@ education_data = [
 
 certifications_data = [
     {
-        "title": "Certified AI Practitioner",
-        "platform": "Hugging Face",
-        "year": "June 2025",
-        "description": "Completed a comprehensive course on AI fundamentals, including LLMs and AI agents.",
-        "certificateLink": "https://huggingface.co/certificates/your-certificate-id",  # Replace with actual link
-        "badge": "/static/images/certifications/ai_practitioner_badge.png"  # Placeholder for badge image
+        "title": "MeViTechnologies LLP certificate of appreciation for outstanding performance and exceptional dedication through out the SDP on NLP",
+        "platform": "MeViTechnlogies",
+        "year": "November 2024",
+        "description": "Completed a comprehensive course on NLP from the skill development program conducted at REVA University",
+        "certificateLink": "https://drive.google.com/file/d/18feyqzNhxoHeFcpjUGtwYECxhJTGlneI/view?usp=sharing",  # Replace with actual link
+        "badge": ""  # Placeholder for badge image
     },
     {
-        "title": "Python for Data Science",
-        "platform": "Coursera",
-        "year": "March 2024",
-        "description": "Learned advanced Python techniques for data analysis and visualization.",
-        "certificateLink": "https://coursera.org/certificates/your-certificate-id",  # Replace with actual link
+        "title": "Art of C Programming",
+        "platform": "Swayam",
+        "year": "June 2024",
+        "description": "Art of C Programming Course Completion with a consolidate score of 89%.",
+        "certificateLink": "https://drive.google.com/file/d/1p4lkzUMqFGtBKJk8ppuSgiyCrR9MrYvS/view?usp=drive_link",  # Replace with actual link
         "badge": "/static/images/certifications/python_data_science_badge.png"  # Placeholder for badge image
     }
 ]
 
 volunteer_experience_data = [
+   
     {
-        "role": "Technical Mentor",
-        "organization": "REVA University Coding Club",
-        "period": "2024-Present",
-        "description": "Mentored students in Python and machine learning, organizing workshops and coding bootcamps.",
-        "contributions": [
-            "Conducted 5+ workshops on Python and NLP for 50+ students",
-            "Guided peers in building AI-based projects for hackathons"
-        ]
-    },
-    {
-        "role": "Volunteer Developer",
-        "organization": "Sahayak Organization",
-        "period": "2023-2024",
+        "role": "Core Team Member",
+        "organization": "Sahayak Organization(NGO)",
+        "period": "2025",
         "description": "Developed the Vexa Chatbot to support queries about underprivileged children's development.",
         "contributions": [
             "Led the development of the chatbot’s AI backend",
@@ -252,7 +242,7 @@ talks_data = [
         "event": "REVA University Tech Talk",
         "date": "July 2025",  # Update with actual date
         "description": "Delivered an 8-minute presentation on the Vexa Chatbot, covering its technical architecture, impact, and deployment for the Sahayak Organization.",
-        "videoLink": "https://www.youtube.com/watch?v=vexa_chatbot_talk"  # Placeholder for actual video link
+        "videoLink": "https://drive.google.com/file/d/1zNCedqcqOxuD4WvIqn47wZLqG-jG5Qkf/view?usp=sharing"  # Placeholder for actual video link
     }
 ]
 
