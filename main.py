@@ -192,7 +192,7 @@ projects_data = [
         "technologies": ["AI","Machine Learning","Python","Streamlit","PLotly","Agentic AI"],
         "githubLink": "https://github.com/BChaitanyaReddy895/Agentic-AI-for-Sustainable-Farming",
         "liveLink": "https://chaitanya895-multiagenticai.hf.space",
-        "image": "/static/images/multiagenticAI.jpg",
+        "image": "/static/images/agenticAI.png",
         "role": "Lead Developer and Team Contributor",
         "contributions": [
             "Designed the Architecture of each agent, describing what each agent does",
@@ -257,8 +257,8 @@ talks_data = [
         "event": "REVA University Tech Talk",
         "date": "July 2025",  # Update with actual date
         "description": "Delivered an 8-minute presentation on the Vexa Chatbot, covering its technical architecture, impact, and deployment for the Sahayak Organization.",
-        "videoLink": "https://drive.google.com/file/d/1zNCedqcqOxuD4WvIqn47wZLqG-jG5Qkf/view?usp=sharing",
-        "image": "static/images/Screenshot 2025-07-14 210436.png"# Placeholder for actual video link
+        "videoLink": "https://drive.google.com/file/d/1zNCedqcqOxuD4WvIqn47wZLqG-jG5Qkf/view?usp=sharing"
+        
     }
 ]
 
