@@ -6,18 +6,16 @@ class Portfolio {
     }
 
     init() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.renderSkills();
-            this.renderProjects();
-            this.renderEducation();
-            this.renderCertifications();
-            this.renderAchievements();
-            this.renderVolunteer();
-            this.renderTalks();
-            this.renderHobbies();
-            this.renderReviews();
-            this.attachEventListeners();
-        });
+        this.renderSkills();
+        this.renderProjects();
+        this.renderEducation();
+        this.renderCertifications();
+        this.renderAchievements();
+        this.renderVolunteer();
+        this.renderTalks();
+        this.renderHobbies();
+        this.renderReviews();
+        this.attachEventListeners();
     }
 
     // ========== Rendering Methods ==========
