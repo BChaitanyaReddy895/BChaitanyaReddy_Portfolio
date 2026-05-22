@@ -3,174 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chaitanya Reddy - Full Stack Developer, Machine Learning Engineer">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="Chaitanya Reddy - Python Developer, Data Analyst, Backend Developer, and AI/ML Engineer">
+    <meta name="theme-color" content="#0b1020">
     <title>Chaitanya Reddy | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">CR</div>
+            <a class="logo" href="#home">BCR</a>
             <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Chaitanya Reddy</h1>
-            <p class="tagline">Full Stack Developer | Machine Learning Engineer | Open Source Contributor</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <section id="home" class="hero">
+        <div class="hero-shell">
+            <div class="hero-copy">
+                <p class="hero-kicker">Hi, I'm B Chaitanya Reddy</p>
+                <h1 id="hero-name">Chaitanya Reddy</h1>
+                <img src="me.jpeg" alt="B Chaitanya Reddy" class="hero-inline-photo">
+                <p id="hero-subtitle" class="hero-subtitle">Python Developer | Machine Learning Enthusiast | AI Innovator</p>
+                <p id="hero-summary" class="hero-summary"></p>
+                <div id="hero-roles" class="hero-roles"></div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#resume" class="btn btn-secondary">Download Resume</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="hero-portrait">
+                    <div class="hero-portrait-inner">
+                        <img src="me.jpeg" alt="B Chaitanya Reddy" class="hero-photo">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="section about-section">
         <div class="container">
             <h2>About Me</h2>
-            <p>I'm a passionate developer and machine learning engineer currently pursuing B.Tech in Computer Science at REVA University. I specialize in building intelligent solutions that combine cutting-edge AI/ML with robust backend systems. My work spans from NLP models to full-stack web applications.</p>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>🎯 Focused</h3>
-                    <p>Building solutions that matter with clean, maintainable code</p>
+            <div class="about-layout">
+                <div class="about-copy">
+                    <p id="about-summary" class="about-summary"></p>
+                    <div id="about-profile" class="profile-row"></div>
                 </div>
-                <div class="about-card">
-                    <h3>📚 Continuous Learner</h3>
-                    <p>Always exploring new technologies and best practices</p>
-                </div>
-                <div class="about-card">
-                    <h3>🤝 Collaborative</h3>
-                    <p>Experienced in team environments and sharing knowledge</p>
-                </div>
+                <div id="about-stats" class="about-stats"></div>
             </div>
+            <div id="about-highlights" class="about-grid"></div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section skills-section">
         <div class="container">
-            <h2>Skills</h2>
-            <div id="skills-container" class="skills-grid">
-                <!-- Dynamically populated by app.js -->
-            </div>
+            <h2>Technical Skills</h2>
+            <div id="skills-container" class="skills-grid"></div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="container">
-            <h2>Projects</h2>
-            <div id="projects-container" class="projects-grid">
-                <!-- Dynamically populated by app.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section education-section">
-        <div class="container">
-            <h2>Education</h2>
-            <div id="education-container" class="education-list">
-                <!-- Dynamically populated by app.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="section certifications-section">
-        <div class="container">
-            <h2>Certifications</h2>
-            <div id="certifications-container" class="certifications-grid">
-                <!-- Dynamically populated by app.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
     <section id="achievements" class="section achievements-section">
         <div class="container">
             <h2>Achievements</h2>
-            <div id="achievements-container" class="achievements-grid">
-                <!-- Dynamically populated by app.js -->
-            </div>
+            <div id="achievements-container" class="achievements-grid"></div>
         </div>
     </section>
 
-    <!-- Volunteer Experience Section -->
-    <section id="volunteer" class="section volunteer-section">
-        <div class="container">
-            <h2>Volunteer Experience</h2>
-            <div id="volunteer-container" class="volunteer-list">
-                <!-- Dynamically populated by app.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Talks Section -->
-    <section id="talks" class="section talks-section">
-        <div class="container">
-            <h2>Talks & Presentations</h2>
-            <div id="talks-container" class="talks-grid">
-                <!-- Dynamically populated by app.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Hobbies Section -->
     <section id="hobbies" class="section hobbies-section">
         <div class="container">
-            <h2>Hobbies</h2>
-            <div id="hobbies-container" class="hobbies-grid">
-                <!-- Dynamically populated by app.js -->
-            </div>
+            <h2>Hobbies & Interests</h2>
+            <div id="hobbies-container" class="hobbies-grid"></div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="section reviews-section">
+    <section id="projects" class="section projects-section">
         <div class="container">
-            <h2>Reviews</h2>
-            <div class="reviews-wrapper">
-                <div id="reviews-list" class="reviews-list">
-                    <!-- Dynamically populated by app.js -->
-                </div>
-                <div class="review-form-wrapper">
-                    <h3>Leave a Review</h3>
-                    <form id="review-form" class="review-form">
-                        <input type="text" id="review-name" placeholder="Your Name" required>
-                        <textarea id="review-description" placeholder="Your Review" required></textarea>
-                        <div class="rating-input">
-                            <label>Rating:</label>
-                            <select id="review-rating" required>
-                                <option value="">Select Rating</option>
-                                <option value="1">⭐ Poor</option>
-                                <option value="2">⭐⭐ Fair</option>
-                                <option value="3">⭐⭐⭐ Good</option>
-                                <option value="4">⭐⭐⭐⭐ Very Good</option>
-                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit Review</button>
-                    </form>
-                </div>
-            </div>
+            <h2>Projects</h2>
+            <div id="projects-container" class="projects-grid"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="education" class="section education-section">
+        <div class="container">
+            <h2>Education</h2>
+            <div id="education-container" class="education-list"></div>
+        </div>
+    </section>
+
+    <section id="resume" class="section resume-section">
+        <div class="container">
+            <h2>Resume</h2>
+            <div id="resume-container"></div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div id="experience-container" class="experience-list"></div>
+        </div>
+    </section>
+
     <section id="contact" class="section contact-section">
         <div class="container">
             <h2>Get in Touch</h2>
@@ -196,17 +139,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Chaitanya Reddy. All rights reserved.</p>
+            <p>&copy; 2026 Chaitanya Reddy. All rights reserved.</p>
             <p>Hosted on GitHub Pages | Built with HTML, CSS, and JavaScript</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="data.js"></script>
-    <script src="storage.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
