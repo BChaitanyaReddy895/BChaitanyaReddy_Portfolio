@@ -1,0 +1,33 @@
+# Environment files
+.env
+.env.local
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python files (deprecated)
+__pycache__/
+*.py
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+main.py
+requirements.txt
+Dockerfile
+
+# Deprecated directories
+data/
+templates/
+*.db 

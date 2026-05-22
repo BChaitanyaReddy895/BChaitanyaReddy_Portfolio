@@ -1,0 +1,26 @@
+# GitHub Pages Configuration
+theme: null
+remote_theme: null
+plugins: []
+
+# Site settings
+title: Chaitanya Reddy | Portfolio
+description: Full Stack Developer & Machine Learning Engineer
+
+# Build settings
+markdown: kramdown
+exclude:
+  - .git
+  - .gitignore
+  - README.md
+  - .env
+  - __pycache__
+
+# Output settings
+output: web
+permalink: /:title/
+
+# Collections
+collections:
+  posts:
+    output: false
