@@ -1,3 +1,10 @@
+const EMAIL_CONFIG = {
+    serviceId: 'service_ayuzqiy',
+    templateId: 'template_ar1magn',
+    publicKey: 'J0Z5fr4QQLcsR8mjk',
+    recipient: 'bchaitanyareddy895@gmail.com'
+};
+
 // Main Application Logic
 class Portfolio {
     constructor() {
@@ -13,9 +20,11 @@ class Portfolio {
         this.renderExperience();
         this.renderProjects();
         this.renderEducation();
+        this.renderCertifications();
         this.renderAchievements();
         this.renderResume();
         this.attachEventListeners();
+        this.initReveal();
     }
 
     // ========== Rendering Methods ==========
@@ -29,11 +38,6 @@ class Portfolio {
         const subtitle = document.getElementById('hero-subtitle');
         if (subtitle) {
             subtitle.textContent = this.data.hero.subtitle;
-        }
-
-        const titleLine = document.getElementById('hero-titleline');
-        if (titleLine) {
-            titleLine.textContent = this.data.hero.titleLine;
         }
 
         const summary = document.getElementById('hero-summary');
@@ -76,7 +80,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = this.data.about.highlights.map(highlight => `
-            <div class="about-card">
+            <div class="about-card reveal-item">
                 <h3>${this.escapeHtml(highlight.title)}</h3>
                 <p>${this.escapeHtml(highlight.description)}</p>
             </div>
@@ -88,7 +92,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = this.data.hobbies.map(hobby => `
-            <div class="hobby-card">
+            <div class="hobby-card reveal-item">
                 <div class="card-icon">${hobby.icon}</div>
                 <h3>${this.escapeHtml(hobby.title)}</h3>
                 <p class="card-description">${this.escapeHtml(hobby.description)}</p>
@@ -101,7 +105,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = this.data.skills.map(skillGroup => `
-            <div class="skill-category">
+            <div class="skill-category reveal-item">
                 <h3>${skillGroup.icon} ${this.escapeHtml(skillGroup.title)}</h3>
                 <div>
                     ${skillGroup.skills.map(skill => `
@@ -125,7 +129,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = this.data.experience.map(experience => `
-            <div class="timeline-item">
+            <div class="timeline-item reveal-item">
                 <h3>${this.escapeHtml(experience.role)}</h3>
                 <div class="timeline-meta">${this.escapeHtml(experience.organization)} • ${this.escapeHtml(experience.period)}</div>
                 <p class="timeline-description">${this.escapeHtml(experience.description)}</p>
@@ -143,7 +147,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = this.data.projects.map(project => `
-            <div class="project-card">
+            <div class="project-card reveal-item">
                 <div class="project-header">
                     <h3>${this.escapeHtml(project.title)}</h3>
                     <div class="project-role">${this.escapeHtml(project.role)}</div>
@@ -160,6 +164,7 @@ class Portfolio {
                     <div class="project-links">
                         <a href="${project.githubLink}" target="_blank">GitHub</a>
                         ${project.liveLink ? `<a href="${project.liveLink}" target="_blank">Live Demo</a>` : ''}
+                        ${project.video ? `<a href="${project.video}" target="_blank">Video</a>` : ''}
                     </div>
 
                     <div class="project-contributions">
@@ -180,7 +185,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = this.data.education.map(education => `
-            <div class="timeline-item">
+            <div class="timeline-item reveal-item">
                 <h3>${this.escapeHtml(education.degree)}</h3>
                 <div class="timeline-meta">${this.escapeHtml(education.institution)} • ${this.escapeHtml(education.period)}</div>
                 <p class="timeline-description">${this.escapeHtml(education.description)}</p>
@@ -193,12 +198,26 @@ class Portfolio {
         `).join('');
     }
 
+    renderCertifications() {
+        const container = document.getElementById('certifications-container');
+        if (!container) return;
+
+        container.innerHTML = this.data.certifications.map(certification => `
+            <div class="certification-card reveal-item">
+                <h3>${this.escapeHtml(certification.title)}</h3>
+                <div class="timeline-meta">${this.escapeHtml(certification.issuer)}</div>
+                <p class="timeline-description">${this.escapeHtml(certification.description)}</p>
+                ${certification.certificateLink ? `<a class="certification-link" href="${certification.certificateLink}" target="_blank" rel="noopener">View Certificate PDF</a>` : ''}
+            </div>
+        `).join('');
+    }
+
     renderAchievements() {
         const container = document.getElementById('achievements-container');
         if (!container) return;
 
         container.innerHTML = this.data.achievements.map(achievement => `
-            <div class="achievement-card">
+            <div class="achievement-card reveal-item">
                 <div class="card-icon">${achievement.icon}</div>
                 <h3>${this.escapeHtml(achievement.title)}</h3>
                 <div class="card-meta">${this.escapeHtml(achievement.organization)}</div>
@@ -212,7 +231,7 @@ class Portfolio {
         if (!container) return;
 
         container.innerHTML = `
-            <div class="resume-panel">
+            <div class="resume-panel reveal-item">
                 <h3>${this.escapeHtml(this.data.resume.title)}</h3>
                 <p>${this.escapeHtml(this.data.resume.description)}</p>
                 <div class="resume-actions">
@@ -227,6 +246,24 @@ class Portfolio {
         `;
     }
 
+    initReveal() {
+        const revealItems = document.querySelectorAll('.reveal-item');
+        if (!revealItems.length) return;
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('reveal-visible');
+                obs.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.16,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        revealItems.forEach(item => observer.observe(item));
+    }
+
     // ========== Event Handlers ==========
 
     attachEventListeners() {
@@ -239,11 +276,12 @@ class Portfolio {
     handleContactSubmit(e) {
         e.preventDefault();
 
+        const name = document.getElementById('contact-name').value.trim();
         const email = document.getElementById('contact-email').value.trim();
         const message = document.getElementById('contact-message').value.trim();
         const statusDiv = document.getElementById('contact-status');
 
-        if (!email || !message) {
+        if (!name || !email || !message) {
             statusDiv.textContent = 'Please fill in all fields';
             statusDiv.classList.add('error');
             return;
@@ -255,32 +293,51 @@ class Portfolio {
             return;
         }
 
-        this.sendEmail(email, message, statusDiv);
+        this.sendEmail(name, email, message, statusDiv);
     }
 
-    sendEmail(email, message, statusDiv) {
-        const SERVICE_ID = 'service_portfolio';
-        const TEMPLATE_ID = 'template_portfolio';
-        const PUBLIC_KEY = 'your_emailjs_public_key';
+    sendEmail(name, email, message, statusDiv) {
+        const config = EMAIL_CONFIG;
 
-        if (typeof emailjs === 'undefined') {
-            this.saveFallbackMessage(email, message, statusDiv);
+        const isEmailJsConfigured = (
+            typeof emailjs !== 'undefined' &&
+            config.publicKey !== 'your_emailjs_public_key' &&
+            config.serviceId !== 'your_service_id' &&
+            config.templateId !== 'your_template_id'
+        );
+
+        if (!isEmailJsConfigured) {
+            const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+            const mailtoLink = `mailto:${config.recipient}?subject=${encodeURIComponent('Portfolio Contact')}&body=${mailBody}`;
+
+            statusDiv.innerHTML = `Email service is not configured. <a href="${mailtoLink}" class="contact-link-action">Tap here to open your email client</a>.`;
+            statusDiv.classList.remove('error');
+
+            const anchor = document.createElement('a');
+            anchor.href = mailtoLink;
+            anchor.style.display = 'none';
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
             return;
         }
 
-        emailjs.init(PUBLIC_KEY);
+        emailjs.init({ publicKey: config.publicKey });
 
         const templateParams = {
-            to_email: 'bchaitanyareddy895@gmail.com',
+            from_name: name,
             from_email: email,
+            reply_to: email,
+            name: name,
+            email: email,
             message: message,
-            reply_to: email
+            title: 'Portfolio Contact'
         };
 
         statusDiv.classList.remove('error');
         statusDiv.textContent = 'Sending...';
 
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams).then(
+        emailjs.send(config.serviceId, config.templateId, templateParams).then(
             () => {
                 statusDiv.textContent = 'Message sent successfully!';
                 statusDiv.classList.remove('error');

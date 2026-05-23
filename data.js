@@ -1,7 +1,7 @@
 // Portfolio Data - Resume-driven content
 const portfolioData = {
     hero: {
-        name: "Chaitanya Reddy",
+        name: "B Chaitanya Reddy",
         titleLine: "Python Developer | Data Analyst | Backend Developer | AI/ML Engineer",
         summary: "Aspiring Software Engineer with strong proficiency in Python and Java, building scalable backend applications, RESTful APIs, full-stack web solutions, and AI/ML-powered systems.",
         subtitle: "Python Developer | Machine Learning Enthusiast | AI Innovator"
@@ -103,8 +103,7 @@ const portfolioData = {
                 { name: "Data Analysis", proficiency: 85 },
                 { name: "Power BI", proficiency: 75 },
                 { name: "MySQL", proficiency: 80 },
-                { name: "SQLite", proficiency: 85 },
-                { name: "Debugging", proficiency: 85 }
+                { name: "SQLite", proficiency: 85 }
             ]
         },
         {
@@ -136,7 +135,6 @@ const portfolioData = {
                 { name: "Docker", proficiency: 80 },
                 { name: "Jupyter", proficiency: 90 },
                 { name: "VS Code", proficiency: 90 },
-                { name: "Streamlit", proficiency: 85 },
                 { name: "IntelliJ IDEA", proficiency: 80 }
             ]
         }
@@ -158,24 +156,12 @@ const portfolioData = {
 
     projects: [
         {
-            title: "AquaJyoti: Real-Time AI Microplastics Detection Platform",
-            role: "SIH 2025 Hardware Edition",
-            description: "Built a production-grade two-stage AI inference platform in Python for real-time microplastics detection using an ensemble of 6 ML/DL models.",
-            technologies: ["Python", "AI/ML", "Ensemble Models", "Raspberry Pi", "Edge Deployment"],
-            githubLink: "https://github.com/BChaitanyaReddy895/AquaJyoti_SIH_ML",
-            liveLink: "",
-            contributions: [
-                "Documented the system architecture, API endpoints, and workflows for maintainability",
-                "Deployed the platform for edge execution on Raspberry Pi, enabling reliable real-time inference"
-            ]
-        },
-        {
             title: "Agentic AI for Sustainable Farming",
-            role: "Team Project",
+            role: "End-to-End Developer",
             description: "Engineered 30+ production-grade REST APIs using FastAPI and Python for crop planning, pest prediction, and multilingual chatbot workflows.",
             technologies: ["FastAPI", "Python", "REST APIs", "Agentic AI", "Agricultural Analytics"],
             githubLink: "https://github.com/BChaitanyaReddy895/Agentic-AI-for-Sustainable-Farming",
-            liveLink: "",
+            liveLink: "https://agrismart-api-m8nz.onrender.com",
             contributions: [
                 "Built a 5-agent AI system for intelligent farm decision support and automated recommendation workflows",
                 "Developed ML-powered crop recommendation pipelines using 296K+ agricultural records"
@@ -187,11 +173,39 @@ const portfolioData = {
             description: "Developed a full-stack web application for intelligent resume-job matching with responsive UI and prediction workflows.",
             technologies: ["Flask", "Python", "HTML", "CSS", "JavaScript", "NLP", "Machine Learning"],
             githubLink: "https://github.com/BChaitanyaReddy895/SkillSync",
-            liveLink: "",
+            liveLink: "https://chaitanya895-skillsync.hf.space",
             contributions: [
                 "Designed backend APIs for resume scoring, skill extraction, and prediction",
                 "Improved system accuracy using NLP and machine learning models",
                 "Built the frontend using HTML, CSS, and JavaScript with a responsive layout"
+            ]
+        },
+        {
+            title: "Vexa Chatbot",
+            role: "Lead Developer and Presenter",
+            description: "An AI-powered chatbot for Sahayak Organization, assisting users with queries about underprivileged children's development.",
+            technologies: ["Python", "Deep Learning", "PyTorch", "Flask", "HTML", "CSS"],
+            githubLink: "https://github.com/BChaitanyaReddy895/vexa_chatbot",
+            liveLink: "https://chaitanya895-sahayak.hf.space",
+            image: "/static/images/Vexa Chatbot.png",
+            video: "https://drive.google.com/file/d/1vDoZFIdO8QzEUVexnqQx_O74HPp7usaq/view?usp=drivesdk",
+            contributions: [
+                "Designed and implemented the chatbot's NLP pipeline using PyTorch",
+                "Developed the Flask backend for seamless user interaction",
+                "Presented the chatbot in an 8-minute talk at the Sahayak Organization anniversary, explaining its functioning, impact, and future goals"
+            ]
+        },
+        {
+            title: "AquaJyoti: Real-Time AI Microplastics Detection Platform",
+            role: "SIH 2025 Hardware Edition",
+            description: "Built a production-grade two-stage AI inference platform in Python for real-time microplastics detection using an ensemble of 6 ML/DL models.",
+            technologies: ["Python", "AI/ML", "Ensemble Models", "Raspberry Pi", "Edge Deployment"],
+            githubLink: "https://github.com/BChaitanyaReddy895/AquaJyoti_SIH_ML",
+            liveLink: "",
+            video: "https://drive.google.com/file/d/1A6lBvtbXTBPkPizmKQeNh4iGRF51tMRw/view?usp=drivesdk",
+            contributions: [
+                "Documented the system architecture, API endpoints, and workflows for maintainability",
+                "Deployed the platform for edge execution on Raspberry Pi, enabling reliable real-time inference"
             ]
         }
     ],
@@ -206,6 +220,15 @@ const portfolioData = {
                 "Specializing in Python, Java, SQL, Machine Learning, and backend development",
                 "Built and shipped projects across AI/ML, API development, and full-stack web applications"
             ]
+        }
+    ],
+
+    certifications: [
+        {
+            title: "Swayam NPTEL Certification - Art of C Programming",
+            issuer: "Swayam NPTEL / University of Calicut",
+            description: "Completed the 4-credit course 'Art of C Programming' with 89% overall score. Earned 29/30 in continuous online assessments and 60/70 in the proctored exam held in May 2024. Issued 21/06/2024 by Dr. Lajish V. L. (Roll No. KK04048439).",
+            certificateLink: "swayam%20NPTEL%20C%20program%20certificate.pdf"
         }
     ],
 
