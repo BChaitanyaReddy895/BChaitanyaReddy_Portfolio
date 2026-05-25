@@ -255,6 +255,24 @@ const portfolioData = {
             issuer: "Swayam NPTEL / University of Calicut",
             description: "Completed the 4-credit course 'Art of C Programming' with 89% overall score. Earned 29/30 in continuous online assessments and 60/70 in the proctored exam held in May 2024. Issued 21/06/2024 by Dr. Lajish V. L. (Roll No. KK04048439).",
             certificateLink: "swayam%20NPTEL%20C%20program%20certificate.pdf"
+        },
+        {
+            title: "Getting Started with Enterprise Data Science",
+            issuer: "IBM",
+            description: "Completed IBM's introductory certificate covering core enterprise data science concepts and practical foundations.",
+            certificateLink: "Getting_Started_with_Enterprise_Data_Science_Badge20231212-29-fuv5k9.pdf"
+        },
+        {
+            title: "Introduction to Data Science",
+            issuer: "Infosys Springboard",
+            description: "Completed the introductory course on data science concepts, workflows, and applications.",
+            certificateLink: "introduction%20to%20data%20science.pdf"
+        },
+        {
+            title: "Introduction to Python",
+            issuer: "Infosys Springboard",
+            description: "Completed the introductory Python certificate covering programming fundamentals and problem-solving basics.",
+            certificateLink: "introduction%20to%20python.pdf"
         }
     ],
 
