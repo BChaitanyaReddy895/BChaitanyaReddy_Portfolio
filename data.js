@@ -156,6 +156,32 @@ const portfolioData = {
 
     projects: [
         {
+            title: "Retail Sales ETL Pipeline & Analytics System",
+            role: "Data Engineering Project",
+            description: "Built an end-to-end retail analytics pipeline using Python, SQL, and Power BI for data processing, reporting, and business insights.",
+            technologies: ["Python", "SQL", "Power BI", "ETL", "Data Analytics"],
+            githubLink: "https://github.com/BChaitanyaReddy895/Retail_sales_Analytics",
+            liveLink: "",
+            contributions: [
+                "Automated data extraction, cleaning, transformation, and loading workflows for structured retail datasets",
+                "Designed relational database schemas and optimized SQL queries for analytics and reporting",
+                "Created interactive Power BI dashboards for sales trends, customer insights, and inventory analytics"
+            ]
+        },
+        {
+            title: "HDFS Log Analytics & Big Data Processing Pipeline",
+            role: "Big Data Project",
+            description: "Developed a scalable log analytics pipeline for HDFS server logs using PySpark and Hadoop-inspired batch and streaming workflows.",
+            technologies: ["PySpark", "Hadoop", "Big Data", "Log Analytics", "Anomaly Detection"],
+            githubLink: "https://github.com/BChaitanyaReddy895/HDFS_Real_Time_logs_Analysis",
+            liveLink: "",
+            contributions: [
+                "Built log ingestion, parsing, anomaly detection, and root cause analysis workflows for structured and semi-structured data",
+                "Simulated streaming and batch-processing architectures inspired by Kafka and Spark for distributed log handling",
+                "Implemented transformation, aggregation, and analytics pipelines to identify usage patterns and anomalies"
+            ]
+        },
+        {
             title: "Agentic AI for Sustainable Farming",
             role: "End-to-End Developer",
             description: "Engineered 30+ production-grade REST APIs using FastAPI and Python for crop planning, pest prediction, and multilingual chatbot workflows.",
